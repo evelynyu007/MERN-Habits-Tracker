@@ -1,0 +1,19 @@
+const express = require("express");
+const router = express.Router();
+const habitsCtrl = require("../../controllers/api/habits");
+
+// get all the habits
+// GET /api/habits
+router.get("/", habitsCtrl.getHabits);
+
+// create a habit
+// POST /api/habits
+router.post("/", habitsCtrl.createHabit);
+
+// delete a habit
+router.delete("/:id", habitsCtrl.deleteHabit);
+
+// update a habit
+router.put("/:id", habitsCtrl.updateHabit);
+
+module.exports = router;

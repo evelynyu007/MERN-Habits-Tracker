@@ -1,16 +1,24 @@
-import "./NavBar.css";
+import React from "react";
 import { Link } from "react-router-dom";
+import * as usersService from "../../utilities/users-service";
 
-export default function NavBar() {
-  /// do not use <a> hyperline element which will triger page reload
-  /// use Link to stop refresh
-  /// But in html elements, it shows <a> tag
+export default function NavBar(props) {
+  function handleLogOut() {
+    usersService.logOut();
+    props.setUser(null);
+  }
+
   return (
     <nav>
-      <Link to="/orders">Order History</Link>
-      {/* provide spaces */}
+      <Link to="/calendar">Calendar</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders/new">New Order</Link>
+      <Link to="/habits">Habits</Link>
+      &nbsp; | &nbsp;
+      <span>Welcome, {props.user.name}</span>
+      &nbsp; | &nbsp;
+      <Link to="" onClick={handleLogOut}>
+        Log Out
+      </Link>
     </nav>
   );
 }
