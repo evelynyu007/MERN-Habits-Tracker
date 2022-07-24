@@ -6,6 +6,9 @@ const habitsCtrl = require("../../controllers/api/habits");
 // GET /api/habits
 router.get("/", habitsCtrl.getHabits);
 
+// get a habit
+router.get("/:id", habitsCtrl.getOneHabit);
+
 // create a habit
 // POST /api/habits
 router.post("/", habitsCtrl.createHabit);

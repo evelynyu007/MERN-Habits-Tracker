@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 module.exports = {
   createHabit,
   getHabits,
+  getOneHabit,
   deleteHabit,
   updateHabit,
 };
@@ -14,6 +15,14 @@ module.exports = {
 async function getHabits(req, res) {
   const habits = await HabitModel.find({}).sort({ createdAt: -1 });
   res.status(200).json(habits);
+}
+
+/*========================================
+        Header
+========================================*/
+async function getOneHabit(req, res) {
+  //baby step
+  res.json({ mssg: "get one habit" });
 }
 
 /*========================================

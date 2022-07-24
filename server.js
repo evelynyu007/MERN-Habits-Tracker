@@ -10,7 +10,6 @@ const app = express();
 
 app.use(logger("dev"));
 // there's no need to mount express.urlencoded middleware
-// why is that?
 app.use(express.json());
 // Configure both serve-favicon & static middleware
 // to serve from the production 'build' folder
