@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as habitsAPI from "../../utilities/habits-api";
 import "./HabitsForm.css";
 
-export default function HabitsForm() {
+export default function HabitsForm({ addNewHabit }) {
   const [newHabit, setNewHabit] = useState({});
   const [error, setError] = useState("");
 
@@ -18,7 +18,7 @@ export default function HabitsForm() {
     event.preventDefault();
     try {
       await habitsAPI.createHabit({ ...newHabit });
-
+      addNewHabit(newHabit);
       setNewHabit({});
     } catch {
       setError("Invalid Habit - Try Again");
@@ -28,7 +28,7 @@ export default function HabitsForm() {
   return (
     <div>
       <h3>create a habit</h3>
-      <form className="create-habit" onSumbit={handleSubmit}>
+      <form className="create-habit" onSubmit={handleSubmit}>
         <label>Habit Name:</label>
         <input
           type="text"
@@ -64,6 +64,7 @@ export default function HabitsForm() {
           required
         />
         <button>Add Habit</button>
+        {error && <div className="error">{error}</div>}
       </form>
     </div>
   );

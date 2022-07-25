@@ -15,6 +15,12 @@ export default function HabitsPage() {
     fetchHabits();
   }, []);
 
+  // add new habits to the existing one
+  // not correct..
+  function addNewHabit(newHabit) {
+    setHabits([...habits, newHabit]);
+  }
+
   return (
     <>
       <h1>All Your Habits</h1>
@@ -29,7 +35,7 @@ export default function HabitsPage() {
           <h2>No Habits - Create One!</h2>
         )}
 
-        <HabitsForm />
+        <HabitsForm addNewHabit={addNewHabit} />
       </div>
     </>
   );
