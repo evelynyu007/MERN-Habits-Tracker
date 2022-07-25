@@ -19,7 +19,7 @@ export default function HabitsForm({ addNewHabit }) {
     try {
       await habitsAPI.createHabit({ ...newHabit });
       addNewHabit(newHabit);
-      setNewHabit({});
+      setNewHabit({ habitName: "", startDate: "", endDate: "", duration: 0 });
     } catch {
       setError("Invalid Habit - Try Again");
     }
@@ -55,12 +55,13 @@ export default function HabitsForm({ addNewHabit }) {
           name="endDate"
         />
 
-        <label>Duration(hours)</label>
+        <label>Duration(hours/per day)</label>
         <input
           type="number"
           onChange={handleChange}
           value={newHabit.duration}
           name="duration"
+          min="0"
           required
         />
         <button>Add Habit</button>

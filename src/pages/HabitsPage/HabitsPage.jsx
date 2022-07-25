@@ -28,7 +28,14 @@ export default function HabitsPage() {
         {habits?.length ? (
           <>
             {habits.map((habit) => {
-              return <HabitsCard key={habit._id} habit={habit} />;
+              return (
+                <HabitsCard
+                  key={habit._id}
+                  habit={habit}
+                  allHabits={habits}
+                  setHabits={setHabits}
+                />
+              );
             })}
           </>
         ) : (

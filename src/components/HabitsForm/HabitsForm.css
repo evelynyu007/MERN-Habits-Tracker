@@ -1,0 +1,6 @@
+.create-habit input[type="text"] {
+}
+
+.create-habit input[type="text"]:focus {
+  border: 3px solid #555;
+}

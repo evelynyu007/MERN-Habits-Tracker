@@ -19,6 +19,7 @@ const habitSchema = new Schema(
       type: Number,
       required: true,
     },
+    checkIn: [],
   },
   {
     timestamps: true,
