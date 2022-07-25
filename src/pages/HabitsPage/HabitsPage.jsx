@@ -24,7 +24,7 @@ export default function HabitsPage() {
   return (
     <>
       <h1>All Your Habits</h1>
-      <div className="habits-page">
+      <div className="habits-container">
         {habits?.length ? (
           <>
             {habits.map((habit) => {
@@ -34,9 +34,9 @@ export default function HabitsPage() {
         ) : (
           <h2>No Habits - Create One!</h2>
         )}
-
-        <HabitsForm addNewHabit={addNewHabit} />
       </div>
+
+      <HabitsForm addNewHabit={addNewHabit} />
     </>
   );
 }

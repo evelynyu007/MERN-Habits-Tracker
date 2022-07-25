@@ -13,7 +13,7 @@ module.exports = {
 ========================================*/
 
 async function getHabits(req, res) {
-  const habits = await HabitModel.find({}).sort({ createdAt: -1 });
+  const habits = await HabitModel.find({});
   res.status(200).json(habits);
 }
 
