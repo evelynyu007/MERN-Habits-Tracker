@@ -15,6 +15,10 @@ const habitSchema = new Schema(
     endDate: {
       type: Date,
     },
+    duration: {
+      type: Number,
+      required: true,
+    },
   },
   {
     timestamps: true,

@@ -7,8 +7,8 @@ export function getAll() {
   return sendRequest(BASE_URL);
 }
 
-export function createHabit() {
-  return sendRequest(`${BASE_URL}`, "POST", postData);
+export function createHabit(data) {
+  return sendRequest(`${BASE_URL}`, "POST", data);
 }
 
 export function updateHabit(id, body) {

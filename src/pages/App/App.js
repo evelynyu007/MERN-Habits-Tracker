@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import { getUser } from "../../utilities/users-service";
@@ -11,6 +11,7 @@ import Header from "../../components/Header/Header";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
+
   return (
     <main className="App">
       {user ? (
@@ -18,7 +19,6 @@ export default function App() {
           <Header />
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            {/* client-side route that renders the component instance if the path matches the url in the address bar */}
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/habits" element={<HabitsPage />} />
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
