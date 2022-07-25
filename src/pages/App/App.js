@@ -5,6 +5,7 @@ import { getUser } from "../../utilities/users-service";
 import AuthPage from "../AuthPage/AuthPage";
 import CalendarPage from "../CalendarPage/CalendarPage";
 import HabitsPage from "../HabitsPage/HabitsPage";
+import CheckInPage from "../CheckInPage/CheckInPage";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
@@ -21,6 +22,7 @@ export default function App() {
           <Routes>
             <Route path="/calendar" element={<CalendarPage />} />
             <Route path="/habits" element={<HabitsPage />} />
+            <Route path="/checkin" element={<CheckInPage />} />
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
             <Route path="/*" element={<Navigate to="/calendar" />} />
           </Routes>

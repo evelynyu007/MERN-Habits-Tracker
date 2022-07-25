@@ -5,10 +5,7 @@ const moment = require("moment");
 
 export default function UpdateHabitForm(props) {
   const [updateHabit, setUpdateHabit] = useState({
-    habitName: props.habit.habitName,
-    startDate: props.habit.startDate,
-    endDate: props.habit.endDate,
-    duration: props.habit.duration,
+    ...props.habit,
   });
   const [error, setError] = useState("");
 
