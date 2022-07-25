@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as habitsAPI from "../../utilities/habits-api";
 import "./HabitsForm.css";
 
-export default function HabitsForm({ addNewHabit }) {
+export default function HabitsForm({ addNewHabit, todayYMD }) {
   const [newHabit, setNewHabit] = useState({});
   const [error, setError] = useState("");
 
@@ -38,24 +38,26 @@ export default function HabitsForm({ addNewHabit }) {
           required
         />
 
-        <label>Start Date</label>
+        <label>Start Date: </label>
         <input
           type="date"
           onChange={handleChange}
           value={newHabit.startDate}
           name="startDate"
+          min={todayYMD}
           required
         />
 
-        <label>End Date</label>
+        <label>End Date: </label>
         <input
           type="date"
           onChange={handleChange}
           value={newHabit.endDate}
           name="endDate"
+          min={todayYMD}
         />
 
-        <label>Duration(hours/per day)</label>
+        <label>Duration(hours/per day): </label>
         <input
           type="number"
           onChange={handleChange}

@@ -3,6 +3,11 @@ import { useState, useEffect } from "react";
 import HabitsCard from "../../components/HabitsCard/HabitsCard";
 import HabitsForm from "../../components/HabitsForm/HabitsForm";
 import * as habitsAPI from "../../utilities/habits-api";
+const moment = require("moment");
+
+// create today as YYYY-MM-DD
+const todayYMD = moment(new Date()).format("YYYY-MM-DD");
+//console.log(todayYMD);
 
 export default function HabitsPage() {
   const [habits, setHabits] = useState([]);
@@ -34,6 +39,7 @@ export default function HabitsPage() {
                   habit={habit}
                   allHabits={habits}
                   setHabits={setHabits}
+                  todayYMD={todayYMD}
                 />
               );
             })}
@@ -43,7 +49,7 @@ export default function HabitsPage() {
         )}
       </div>
 
-      <HabitsForm addNewHabit={addNewHabit} />
+      <HabitsForm addNewHabit={addNewHabit} todayYMD={todayYMD} />
     </>
   );
 }

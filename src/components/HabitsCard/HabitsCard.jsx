@@ -4,7 +4,7 @@ import * as habitsAPI from "../../utilities/habits-api";
 import UpdateHabitForm from "../UpdateHabitForm/UpdateHabitForm";
 const moment = require("moment");
 
-export default function HabitsCard({ habit, allHabits, setHabits }) {
+export default function HabitsCard({ habit, allHabits, setHabits, todayYMD }) {
   const startTime = habit && moment(habit.startDate);
   const [editPopup, setEditPopup] = useState(false);
 
@@ -25,7 +25,11 @@ export default function HabitsCard({ habit, allHabits, setHabits }) {
         <strong>Duration(hours): </strong>
         {habit.duration}
       </p>
+      {/* <p>{habit.createdAt}</p> */}
+
       <button onClick={handleDelete}>Delete</button>
+
+      {/********************* Edit Habits **************************************/}
       <button
         onClick={() => {
           setEditPopup(true);
@@ -33,12 +37,14 @@ export default function HabitsCard({ habit, allHabits, setHabits }) {
       >
         Edit
       </button>
-      <UpdateHabitForm trigger={editPopup} setTrigger={setEditPopup}>
-        <h3>Edit Habit</h3>
-        <p>This is edit form popup</p>
-      </UpdateHabitForm>
-
-      {/* <p>{habit.createdAt}</p> */}
+      <UpdateHabitForm
+        trigger={editPopup}
+        setTrigger={setEditPopup}
+        habit={habit}
+        allHabits={allHabits}
+        setHabits={setHabits}
+        todayYMD={todayYMD}
+      />
     </div>
   );
 }
