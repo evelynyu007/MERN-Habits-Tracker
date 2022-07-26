@@ -5,7 +5,9 @@ import UpdateHabitForm from "../UpdateHabitForm/UpdateHabitForm";
 const moment = require("moment");
 
 export default function HabitsCard({ habit, allHabits, setHabits, todayYMD }) {
-  const startTime = habit && moment(habit.startDate);
+  const startTime = moment.utc(habit.startDate).format("MM/DD/YYYY");
+  const endTime =
+    habit.endDate && moment.utc(habit.endDate).format("MM/DD/YYYY");
   const [editPopup, setEditPopup] = useState(false);
 
   async function handleDelete() {
@@ -15,11 +17,18 @@ export default function HabitsCard({ habit, allHabits, setHabits, todayYMD }) {
 
   return (
     <div className="habits-card">
-      <h4>{habit.habitName}</h4>
+      <h4>{habit.title}</h4>
       <p>
-        <strong>Started from: </strong>
-        {startTime.format("MM/DD/YYYY")}
+        <strong>Start Date: </strong>
+        {startTime}
       </p>
+
+      {endTime && (
+        <p>
+          <strong>End Date: </strong>
+          {endTime}
+        </p>
+      )}
 
       <p>
         <strong>Duration(hours): </strong>

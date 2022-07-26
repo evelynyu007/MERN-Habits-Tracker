@@ -19,7 +19,7 @@ export default function HabitsForm({ addNewHabit, todayYMD }) {
     try {
       await habitsAPI.createHabit({ ...newHabit });
       addNewHabit(newHabit);
-      setNewHabit({ habitName: "", startDate: "", endDate: "", duration: 0 });
+      setNewHabit({ title: "", startDate: "", endDate: "", duration: 0 });
     } catch {
       setError("Invalid Habit - Try Again");
     }
@@ -33,8 +33,8 @@ export default function HabitsForm({ addNewHabit, todayYMD }) {
         <input
           type="text"
           onChange={handleChange}
-          value={newHabit.habitName}
-          name="habitName"
+          value={newHabit.title}
+          name="title"
           required
         />
 

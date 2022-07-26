@@ -21,11 +21,11 @@ export default function CheckInPage({ user }) {
       setHabits(habits);
     }
     fetchHabits();
-  }, []);
+  }, [user._id]);
 
   return (
     <div>
-      <h1>Check In {todayFormat}</h1>
+      <h1>Check-In {todayFormat}</h1>
       {/* List all the habits user have */}
       {habits?.length ? (
         <>
@@ -33,6 +33,7 @@ export default function CheckInPage({ user }) {
             // only list the habits after start date &&// before end date
             if (Date.parse(habit.startDate) <= Date.parse(today))
               return <HabitsCheckInCard key={habit._id} habit={habit} />;
+            else return null;
           })}
         </>
       ) : (

@@ -4,7 +4,7 @@ const Schema = require("mongoose").Schema;
 const habitSchema = new Schema(
   {
     user: { type: Schema.Types.ObjectId, ref: "User" },
-    habitName: {
+    title: {
       type: String,
       required: true,
     },

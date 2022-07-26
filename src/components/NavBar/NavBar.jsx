@@ -16,7 +16,7 @@ export default function NavBar(props) {
       &nbsp; | &nbsp;
       <span>Welcome, {props.user.name}</span>
       &nbsp; | &nbsp;
-      <Link to="/checkin">Check In</Link>
+      <Link to="/checkin">Today's Check-In</Link>
       &nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>
         Log Out

@@ -16,7 +16,7 @@ export default function HabitsCheckInCard({ habit }) {
     if (habit.checkIn.includes(todayYMD)) {
       setCrossOut(true);
     }
-  }, []);
+  }, [habit.checkIn]);
 
   async function handleCrossOut() {
     setCrossOut(true);
@@ -38,7 +38,7 @@ export default function HabitsCheckInCard({ habit }) {
           color: crossOut ? "red" : "",
         }}
       >
-        {habit.habitName} for {habit.duration} hour(s)
+        {habit.title} for {habit.duration} hour(s)
       </h3>
     </>
   );

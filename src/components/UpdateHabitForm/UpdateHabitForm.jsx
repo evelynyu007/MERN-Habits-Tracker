@@ -40,15 +40,15 @@ export default function UpdateHabitForm(props) {
         <button className="close-btn" onClick={() => props.setTrigger(false)}>
           close
         </button>
-        <h3>Edit Habit - {props.habit.habitName} </h3>
+        <h3>Edit Habit - {props.habit.title} </h3>
 
         <form className="update-habit" onSubmit={handleSubmit}>
           <label>Habit Name:</label>
           <input
             type="text"
             onChange={handleChange}
-            value={updateHabit.habitName}
-            name="habitName"
+            value={updateHabit.title}
+            name="title"
             required
           />
 
@@ -57,10 +57,10 @@ export default function UpdateHabitForm(props) {
             type="date"
             onChange={handleChange}
             // change date format to yyyy-mm-dd to show up in chrome
-            value={moment(updateHabit.startDate).format("YYYY-MM-DD")}
+            value={moment.utc(updateHabit.startDate).format("YYYY-MM-DD")}
             name="startDate"
-            // not earlier than original start date
-            min={props.habit.startDate}
+            // not earlier than original start date, hmmm..
+            min={moment.utc(props.habit.startDate)}
             required
           />
 
@@ -68,7 +68,7 @@ export default function UpdateHabitForm(props) {
           <input
             type="date"
             onChange={handleChange}
-            value={moment(updateHabit.endDate).format("YYYY-MM-DD")}
+            value={moment.utc(updateHabit.endDate).format("YYYY-MM-DD")}
             min={updateHabit.startDate}
             name="endDate"
           />
