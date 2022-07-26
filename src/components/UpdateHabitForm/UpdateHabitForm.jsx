@@ -22,7 +22,7 @@ export default function UpdateHabitForm(props) {
     try {
       await habitsAPI.updateHabit(props.habit._id, { ...updateHabit });
       const newAllHabits = props.allHabits.map((h) => {
-        if ((h._id = props.habit._id)) {
+        if (h._id === props.habit._id) {
           return updateHabit;
         }
         return h;
@@ -59,7 +59,8 @@ export default function UpdateHabitForm(props) {
             // change date format to yyyy-mm-dd to show up in chrome
             value={moment(updateHabit.startDate).format("YYYY-MM-DD")}
             name="startDate"
-            min={props.todayYMD}
+            // not earlier than original start date
+            min={props.habit.startDate}
             required
           />
 

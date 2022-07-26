@@ -11,7 +11,7 @@ const todayYMD = moment(new Date()).format("YYYY-MM-DD");
 
 export default function HabitsPage({ user }) {
   const [habits, setHabits] = useState([]);
-  console.log("userId: " + user._id);
+
   useEffect(() => {
     async function fetchHabits() {
       const habits = await habitsAPI.getAll(user._id);
