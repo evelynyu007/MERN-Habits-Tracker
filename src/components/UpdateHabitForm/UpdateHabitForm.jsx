@@ -68,7 +68,7 @@ export default function UpdateHabitForm(props) {
             type="date"
             onChange={handleChange}
             value={moment(updateHabit.endDate).format("YYYY-MM-DD")}
-            min={props.todayYMD}
+            min={updateHabit.startDate}
             name="endDate"
           />
 

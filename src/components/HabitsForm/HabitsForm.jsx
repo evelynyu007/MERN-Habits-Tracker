@@ -54,7 +54,7 @@ export default function HabitsForm({ addNewHabit, todayYMD }) {
           onChange={handleChange}
           value={newHabit.endDate}
           name="endDate"
-          min={todayYMD}
+          min={newHabit.startDate}
         />
 
         <label>Duration(hours/per day): </label>

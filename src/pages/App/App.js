@@ -21,8 +21,8 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/calendar" element={<CalendarPage />} />
-            <Route path="/habits" element={<HabitsPage />} />
-            <Route path="/checkin" element={<CheckInPage />} />
+            <Route path="/habits" element={<HabitsPage user={user} />} />
+            <Route path="/checkin" element={<CheckInPage user={user} />} />
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
             <Route path="/*" element={<Navigate to="/calendar" />} />
           </Routes>

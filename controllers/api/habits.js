@@ -13,7 +13,8 @@ module.exports = {
 ========================================*/
 
 async function getHabits(req, res) {
-  const habits = await HabitModel.find({});
+  const { userId } = req.params;
+  const habits = await HabitModel.find({ user: userId });
   res.status(200).json(habits);
 }
 
@@ -41,6 +42,7 @@ async function createHabit(req, res) {
   try {
     const habit = await HabitModel.create({
       ...req.body,
+      user: req.user._id,
     });
     res.status(200).json(habit);
   } catch (e) {

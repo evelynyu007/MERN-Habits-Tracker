@@ -2,9 +2,9 @@ import sendRequest from "./send-request";
 
 const BASE_URL = "api/habits";
 
-// get all habits
-export function getAll() {
-  return sendRequest(BASE_URL);
+// get all habits by the user
+export function getAll(userId) {
+  return sendRequest(`${BASE_URL}/user/${userId}`);
 }
 
 export function createHabit(data) {

@@ -10,12 +10,12 @@ const today = new Date().toLocaleDateString("en-us", {
   day: "numeric",
 });
 
-export default function CheckInPage() {
+export default function CheckInPage({ user }) {
   const [habits, setHabits] = useState([]);
   //grab all habits
   useEffect(() => {
     async function fetchHabits() {
-      const habits = await habitsAPI.getAll();
+      const habits = await habitsAPI.getAll(user._id);
       setHabits(habits);
     }
     fetchHabits();

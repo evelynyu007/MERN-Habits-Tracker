@@ -9,16 +9,16 @@ const moment = require("moment");
 const todayYMD = moment(new Date()).format("YYYY-MM-DD");
 //console.log(todayYMD);
 
-export default function HabitsPage() {
+export default function HabitsPage({ user }) {
   const [habits, setHabits] = useState([]);
-
+  console.log("userId: " + user._id);
   useEffect(() => {
     async function fetchHabits() {
-      const habits = await habitsAPI.getAll();
+      const habits = await habitsAPI.getAll(user._id);
       setHabits(habits);
     }
     fetchHabits();
-  }, []);
+  }, [user._id]);
 
   // add new habits to the existing one
   // not correct..

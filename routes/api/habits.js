@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const habitsCtrl = require("../../controllers/api/habits");
 
-// get all the habits
+// get all the user's habits
 // GET /api/habits
-router.get("/", habitsCtrl.getHabits);
+router.get("/user/:userId", habitsCtrl.getHabits);
 
 // get a habit
-router.get("/:id", habitsCtrl.getOneHabit);
+// router.get("/:id", habitsCtrl.getOneHabit);
 
 // create a habit
 // POST /api/habits
