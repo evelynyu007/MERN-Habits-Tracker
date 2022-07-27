@@ -55,7 +55,7 @@ export default function CalendarPage({ user }) {
         });
       });
 
-      console.log(checkedInEvents);
+      //console.log(checkedInEvents);
       setAllCheckIn(checkedInEvents);
     }
     fetchHabits();
