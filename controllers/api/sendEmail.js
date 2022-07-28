@@ -86,19 +86,11 @@ function welcomeEmail(userEmail) {
     },
     subject: "Cheers to a new day!",
     text: "Welcome to Habit Tracker!",
-    html: "",
+    html: `<h1>Welcome to Habit Tracker!</h1>
+            <h3>Follow your own schedule and track your own goals.</h3>
+    `,
   };
-  async function sendEmail() {
-    try {
-      await sgMail.send(welcomeMessage);
-    } catch (error) {
-      console.log(error.message);
-      if (error.response) {
-        console.error(error.response.body);
-      }
-    }
-  }
-  sendEmail();
+  sgMail.send(welcomeMessage);
   console.log("Welcome email sent out");
 }
 

@@ -1,10 +1,7 @@
 const User = require("../../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-//const welcomeEmail = require("./controllers/api/sendEmail");
-require("dotenv").config();
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const { welcomeEmail } = require("./sendEmail");
 
 module.exports = {
   create,
@@ -35,22 +32,7 @@ async function create(req, res) {
     // token will be a string
     const token = createJWT(user);
 
-    ////send out - Welcome email
-    console.log("new user email: " + req.body.email);
-    const welcomeMessage = {
-      to: req.body.email,
-      from: {
-        name: "Your Habit Tracker",
-        email: process.env.SENDER_EMAIL,
-      },
-      subject: "Cheers to a new day!",
-      text: "Welcome to Habit Tracker!",
-      html: `<h1>Welcome to Habit Tracker!</h1>
-              <h3>Follow your own schedule and track your own goals.</h3>
-      `,
-    };
-    sgMail.send(welcomeMessage);
-    console.log("Welcome email sent out");
+    welcomeEmail(req.body.email);
 
     // send back the token as a string
     // which we need to account for
