@@ -12,7 +12,6 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 ////////////////////////////////////////////////
 const job = schedule.scheduleJob("10 7 * * *", async function () {
   //send emails to all the users
-  //TODO: is it better to use controllers, routes to do the whole thing????
   const allUsers = await User.find({});
 
   for (let i = 0; i < allUsers.length; i++) {
@@ -64,22 +63,43 @@ const job = schedule.scheduleJob("10 7 * * *", async function () {
 });
 
 //////////////////////////////////////////////////////////
-// TODO: send welcome email here?
+// send welcome email
 //////////////////////////////////////////////////////////
-function welcomeEmail(userData) {
-  const msg = {
-    to: userData.email,
+function welcomeEmail(userEmail) {
+  // const welcomeMessage = {
+  //   to: userData.email,
+  //   from: {
+  //     name: "Your Habit Tracker",
+  //     email: process.env.SENDER_EMAIL,
+  //   },
+  //   templatedId: "d-747b180b5a73421ba09cb272824c4228",
+  //   dynamic_template_data: {
+  //     subject: "Welcome to Habits Tracker!",
+  //     name: userData.name,
+  //   },
+  // };
+  const welcomeMessage = {
+    to: userEmail,
     from: {
       name: "Your Habit Tracker",
       email: process.env.SENDER_EMAIL,
     },
-    templatedId: "d-747b180b5a73421ba09cb272824c4228",
-    dynamic_template_data: {
-      subject: "Welcome to Habits Tracker!",
-      name: userData.name,
-    },
+    subject: "Cheers to a new day!",
+    text: "Welcome to Habit Tracker!",
+    html: "",
   };
-  return sgMail.send(msg);
+  async function sendEmail() {
+    try {
+      await sgMail.send(welcomeMessage);
+    } catch (error) {
+      console.log(error.message);
+      if (error.response) {
+        console.error(error.response.body);
+      }
+    }
+  }
+  sendEmail();
+  console.log("Welcome email sent out");
 }
 
 module.exports = { job, welcomeEmail };

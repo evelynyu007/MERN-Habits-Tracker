@@ -44,4 +44,4 @@ app.listen(port, function () {
 });
 
 // send email to user
-const job = require("./src/utilities/sendEmail");
+const job = require("./controllers/api/sendEmail");
