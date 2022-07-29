@@ -42,7 +42,7 @@ export default function UpdateHabitForm(props) {
         </button>
         <h3>Edit Habit - {props.habit.title} </h3>
 
-        <form className="update-habit" onSubmit={handleSubmit}>
+        <form className="habit-form" onSubmit={handleSubmit}>
           <label>Habit Name:</label>
           <input
             type="text"

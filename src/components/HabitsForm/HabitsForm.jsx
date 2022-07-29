@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import * as habitsAPI from "../../utilities/habits-api";
 import "./HabitsForm.css";
 
@@ -36,7 +35,7 @@ export default function HabitsForm({
   return trigger ? (
     <div className="popup">
       <div className="popup-inner">
-        <h3>Create a new habit</h3>
+        <h3>Add a New Habit</h3>
         <button
           className="close-btn"
           onClick={() => {
@@ -46,52 +45,45 @@ export default function HabitsForm({
           close
         </button>
 
-        <form className="create-habit" onSubmit={handleSubmit}>
-          <label>
-            Habit Name:
-            <input
-              type="text"
-              onChange={handleChange}
-              value={newHabit.title}
-              name="title"
-              required
-            />
-          </label>
+        <form className="habit-form" onSubmit={handleSubmit}>
+          <label>Habit Name:</label>
+          <input
+            type="text"
+            onChange={handleChange}
+            value={newHabit.title}
+            name="title"
+            required
+          />
 
-          <label>
-            Start Date:
-            <input
-              type="date"
-              onChange={handleChange}
-              value={newHabit.startDate}
-              name="startDate"
-              min={todayYMD}
-              required
-            />
-          </label>
+          <label>Start Date:</label>
+          <input
+            type="date"
+            onChange={handleChange}
+            value={newHabit.startDate}
+            name="startDate"
+            min={todayYMD}
+            required
+          />
 
-          <label>
-            End Date:
-            <input
-              type="date"
-              onChange={handleChange}
-              value={newHabit.endDate}
-              name="endDate"
-              min={newHabit.startDate}
-            />
-          </label>
+          <label>End Date:</label>
+          <input
+            type="date"
+            onChange={handleChange}
+            value={newHabit.endDate}
+            name="endDate"
+            min={newHabit.startDate}
+          />
 
-          <label>
-            Duration(hours/per day):
-            <input
-              type="number"
-              onChange={handleChange}
-              value={newHabit.duration}
-              name="duration"
-              min="0"
-              required
-            />
-          </label>
+          <label>Duration(hours/per day):</label>
+          <input
+            type="number"
+            onChange={handleChange}
+            value={newHabit.duration}
+            name="duration"
+            min="0"
+            required
+          />
+
           <button>Add Habit</button>
           {error && <div className="error">{error}</div>}
         </form>
