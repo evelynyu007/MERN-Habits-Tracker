@@ -11,6 +11,7 @@ const todayYMD = moment(new Date()).format("YYYY-MM-DD");
 
 export default function HabitsPage({ user }) {
   const [habits, setHabits] = useState([]);
+  const [addPopup, setAddPopup] = useState(false);
 
   useEffect(() => {
     async function fetchHabits() {
@@ -21,7 +22,6 @@ export default function HabitsPage({ user }) {
   }, [user._id]);
 
   // add new habits to the existing one
-  // not correct..
   function addNewHabit(newHabit) {
     setHabits([...habits, newHabit]);
   }
@@ -29,6 +29,17 @@ export default function HabitsPage({ user }) {
   return (
     <>
       <h1>All Your Habits</h1>
+      {/* Add a habit */}
+      <button onClick={() => setAddPopup(true)}>Add</button>
+      <HabitsForm
+        trigger={addPopup}
+        setTrigger={setAddPopup}
+        addNewHabit={addNewHabit}
+        setHabits={setHabits}
+        user={user}
+        todayYMD={todayYMD}
+      />
+
       <div className="habits-container">
         {habits?.length ? (
           <>
@@ -48,8 +59,6 @@ export default function HabitsPage({ user }) {
           <h2>No Habits - Create One!</h2>
         )}
       </div>
-
-      <HabitsForm addNewHabit={addNewHabit} todayYMD={todayYMD} />
     </>
   );
 }

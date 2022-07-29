@@ -9,9 +9,12 @@ export default function HabitsCard({ habit, allHabits, setHabits, todayYMD }) {
   const endTime =
     habit.endDate && moment.utc(habit.endDate).format("MM/DD/YYYY");
   const [editPopup, setEditPopup] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleDelete() {
-    await habitsAPI.deleteHabit(habit._id);
+    // habit._id is undefined..???
+    const response = await habitsAPI.deleteHabit(habit._id);
+    console.log(response);
     setHabits(allHabits.filter((h) => h._id !== habit._id));
   }
 

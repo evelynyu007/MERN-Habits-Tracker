@@ -2,7 +2,14 @@ import { useState } from "react";
 import * as habitsAPI from "../../utilities/habits-api";
 import "./HabitsForm.css";
 
-export default function HabitsForm({ addNewHabit, todayYMD }) {
+export default function HabitsForm({
+  trigger,
+  setTrigger,
+  addNewHabit,
+  setHabits,
+  user,
+  todayYMD,
+}) {
   const [newHabit, setNewHabit] = useState({});
   const [error, setError] = useState("");
 
@@ -18,57 +25,75 @@ export default function HabitsForm({ addNewHabit, todayYMD }) {
     event.preventDefault();
     try {
       await habitsAPI.createHabit({ ...newHabit });
-      addNewHabit(newHabit);
+      //addNewHabit(newHabit); -> this is not working...cannot get id??
+      const allHabits = await habitsAPI.getAll(user._id);
+      setHabits(allHabits);
+
+      console.log("add new habit");
       setNewHabit({ title: "", startDate: "", endDate: "", duration: 0 });
+      setTrigger(false);
     } catch {
       setError("Invalid Habit - Try Again");
     }
   }
 
-  return (
-    <div>
-      <h3>create a habit</h3>
-      <form className="create-habit" onSubmit={handleSubmit}>
-        <label>Habit Name:</label>
-        <input
-          type="text"
-          onChange={handleChange}
-          value={newHabit.title}
-          name="title"
-          required
-        />
+  return trigger ? (
+    <div className="popup">
+      <div className="popup-inner">
+        <h3>Create a new habit</h3>
+        <button
+          className="close-btn"
+          onClick={() => {
+            setTrigger(false);
+          }}
+        >
+          close
+        </button>
 
-        <label>Start Date: </label>
-        <input
-          type="date"
-          onChange={handleChange}
-          value={newHabit.startDate}
-          name="startDate"
-          min={todayYMD}
-          required
-        />
+        <form className="create-habit" onSubmit={handleSubmit}>
+          <label>Habit Name:</label>
+          <input
+            type="text"
+            onChange={handleChange}
+            value={newHabit.title}
+            name="title"
+            required
+          />
 
-        <label>End Date: </label>
-        <input
-          type="date"
-          onChange={handleChange}
-          value={newHabit.endDate}
-          name="endDate"
-          min={newHabit.startDate}
-        />
+          <label>Start Date: </label>
+          <input
+            type="date"
+            onChange={handleChange}
+            value={newHabit.startDate}
+            name="startDate"
+            min={todayYMD}
+            required
+          />
 
-        <label>Duration(hours/per day): </label>
-        <input
-          type="number"
-          onChange={handleChange}
-          value={newHabit.duration}
-          name="duration"
-          min="0"
-          required
-        />
-        <button>Add Habit</button>
-        {error && <div className="error">{error}</div>}
-      </form>
+          <label>End Date: </label>
+          <input
+            type="date"
+            onChange={handleChange}
+            value={newHabit.endDate}
+            name="endDate"
+            min={newHabit.startDate}
+          />
+
+          <label>Duration(hours/per day): </label>
+          <input
+            type="number"
+            onChange={handleChange}
+            value={newHabit.duration}
+            name="duration"
+            min="0"
+            required
+          />
+          <button>Add Habit</button>
+          {error && <div className="error">{error}</div>}
+        </form>
+      </div>
     </div>
+  ) : (
+    ""
   );
 }
