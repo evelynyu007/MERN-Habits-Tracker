@@ -1,0 +1,5 @@
+/* Change background on mouse-over */
+.auth-page-container h3:hover {
+  font-size: larger;
+  color: rgb(37, 37, 124);
+}

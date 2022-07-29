@@ -85,7 +85,7 @@ export default function HabitsForm({
           />
 
           <button>Add Habit</button>
-          {error && <div className="error">{error}</div>}
+          {error && <div className="error-message">{error}</div>}
         </form>
       </div>
     </div>

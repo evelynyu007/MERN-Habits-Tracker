@@ -4,35 +4,10 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import * as habitsAPI from "../../utilities/habits-api";
+import "./CalendarPage.css";
 
 moment.locale("en");
 const localizer = momentLocalizer(moment);
-
-// seed data
-// date is a month later..
-// const events = [
-//   {
-//     title: "big meeting",
-//     allDay: true,
-//     start: new Date(2022, 6, 1),
-//     end: new Date(2022, 6, 2),
-//   },
-//   {
-//     title: "Vacation",
-//     start: new Date(2022, 9, 1),
-//     end: new Date(2022, 9, 2),
-//   },
-//   {
-//     title: "Vacation",
-//     start: new Date(2022, 9, 2),
-//     end: new Date(2022, 9, 3),
-//   },
-//   {
-//     title: "Conference",
-//     start: new Date(2022, 6, 14),
-//     end: new Date(2022, 6, 15),
-//   },
-// ];
 
 export default function CalendarPage({ user }) {
   const [allCheckIn, setAllCheckIn] = useState([]);
@@ -47,8 +22,7 @@ export default function CalendarPage({ user }) {
       habits.forEach((habit) => {
         habit.checkIn.forEach((date) => {
           checkedInEvents.push({
-            // title: "✅ " + habit.title,
-            title: habit.title,
+            title: "✅ " + habit.title,
             start: moment(date).toDate(),
             end: moment(date).add(1, "days").toDate(),
           });
@@ -70,7 +44,11 @@ export default function CalendarPage({ user }) {
         events={allCheckIn}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 800, maxWidth: 1200, margin: "50px" }}
+        style={{
+          height: 700,
+          maxWidth: 1200,
+          margin: "50px",
+        }}
       />
     </div>
   );

@@ -1,0 +1,24 @@
+nav {
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  height: 30px;
+}
+
+/* Links inside the navbar */
+nav span {
+  float: right;
+  display: block;
+  color: #474545;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* #log-out {
+  float: right;
+} */
+/* Change background on mouse-over */
+nav span:hover {
+  background: #ddd;
+  color: black;
+}

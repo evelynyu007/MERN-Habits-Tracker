@@ -16,7 +16,6 @@ export default function App() {
     <main className="App">
       {user ? (
         <>
-          <Header />
           <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/calendar" element={<CalendarPage user={user} />} />
@@ -27,7 +26,10 @@ export default function App() {
           </Routes>
         </>
       ) : (
-        <AuthPage setUser={setUser} />
+        <>
+          <Header />
+          <AuthPage setUser={setUser} />
+        </>
       )}
       <Footer />
     </main>

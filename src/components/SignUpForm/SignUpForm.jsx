@@ -45,7 +45,11 @@ export default class SignUpForm extends Component {
     return (
       <div>
         <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
+          <form
+            className="form-login"
+            autoComplete="off"
+            onSubmit={this.handleSubmit}
+          >
             <label>Name</label>
             <input
               type="text"

@@ -84,7 +84,7 @@ export default function UpdateHabitForm(props) {
           />
 
           <button>Update</button>
-          {error && <div className="error">{error}</div>}
+          {error && <div className="error-message">{error}</div>}
         </form>
       </div>
     </div>
