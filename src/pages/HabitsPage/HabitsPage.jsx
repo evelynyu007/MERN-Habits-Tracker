@@ -36,7 +36,6 @@ export default function HabitsPage({ user }) {
         setTrigger={setAddPopup}
         addNewHabit={addNewHabit}
         setHabits={setHabits}
-        user={user}
         todayYMD={todayYMD}
       />
 

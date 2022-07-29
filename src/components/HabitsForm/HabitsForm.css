@@ -1,6 +1,5 @@
-.add-habit input[type="text"] {
-}
-
-.add-habit input[type="text"]:focus {
-  border: 3px solid #555;
+.create-habit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
