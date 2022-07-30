@@ -37,7 +37,7 @@ export default function CalendarPage({ user }) {
 
   return (
     <div className="calendar-page">
-      <h1>Checked In Calendar</h1>
+      <h1>Punch Out Calendar</h1>
 
       <Calendar
         localizer={localizer}
@@ -46,7 +46,6 @@ export default function CalendarPage({ user }) {
         endAccessor="end"
         style={{
           height: 700,
-          maxWidth: 1200,
           margin: "50px",
         }}
       />

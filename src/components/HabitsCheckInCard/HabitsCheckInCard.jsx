@@ -21,7 +21,11 @@ export default function HabitsCheckInCard({ habit }) {
   async function handleCrossOut() {
     setCrossOut(true);
     // save today's date into habit.checkIn
-    updateHabit.checkIn.push(todayYMD);
+    // only push one same date
+    if (updateHabit.checkIn.indexOf(todayYMD) === -1) {
+      updateHabit.checkIn.push(todayYMD);
+    }
+
     try {
       await habitsAPI.updateHabit(habit._id, { ...updateHabit });
     } catch (e) {

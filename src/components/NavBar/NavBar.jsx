@@ -20,13 +20,16 @@ export default function NavBar(props) {
       </Link>
 
       <Link to="/habits">
-        <span> Habits</span>
+        <span> Routines</span>
       </Link>
 
       <Link to="/checkin">
         <span> Today's Check-In </span>
       </Link>
-      <span>Welcome, {props.user.name}</span>
+
+      <Link to="/profile">
+        <span>Hi, {props.user.name}</span>
+      </Link>
     </nav>
   );
 }

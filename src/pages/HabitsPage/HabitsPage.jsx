@@ -28,7 +28,7 @@ export default function HabitsPage({ user }) {
 
   return (
     <>
-      <h1>All Your Habits</h1>
+      <h1>All Your Routines</h1>
       {/* Add a habit */}
       <button onClick={() => setAddPopup(true)}>Add</button>
       <HabitsForm

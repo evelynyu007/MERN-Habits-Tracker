@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: rgb(244, 243, 243);
+  background-color: #f4f3f3;
 }
 .error-message {
   color: brown;
