@@ -3,7 +3,7 @@ const router = express.Router();
 const habitsCtrl = require("../../controllers/api/habits");
 
 // get all the user's habits
-// GET /api/habits
+// GET /api/habits/user/:userId
 router.get("/user/:userId", habitsCtrl.getHabits);
 
 // get a habit

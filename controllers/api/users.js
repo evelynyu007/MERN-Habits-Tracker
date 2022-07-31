@@ -7,6 +7,7 @@ module.exports = {
   create,
   login,
   checkToken,
+  subscribeOrNot,
 };
 
 function checkToken(req, res) {
@@ -31,15 +32,15 @@ async function create(req, res) {
     const user = await User.create(req.body);
     // token will be a string
     const token = createJWT(user);
-
+    // send out welcome email
     welcomeEmail(req.body.email);
 
     // send back the token as a string
     // which we need to account for
     // in the client
-    res.json(token);
-  } catch (e) {
-    res.status(400).json(e);
+    res.status(200).json(token);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 }
 
@@ -52,4 +53,13 @@ function createJWT(user) {
     process.env.SECRET,
     { expiresIn: "24h" }
   );
+}
+
+// TODO:
+// subscribe/unsubscribe
+async function subscribeOrNot(req, res) {
+  console.log("controller: ", req.body);
+  const sub = req.body.subscribe;
+  console.log("subscribe? ", sub);
+  await User.updateOne({ _id: req.body._id }, { subscribe: sub });
 }

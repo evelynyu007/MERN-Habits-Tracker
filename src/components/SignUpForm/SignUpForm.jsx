@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { signUp } from "../../utilities/users-service";
+const validator = require("validator");
 
 export default class SignUpForm extends Component {
   // class field syntax
@@ -13,6 +14,26 @@ export default class SignUpForm extends Component {
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
+
+    // console.log(evt.target.email);
+    // console.log(evt.target.password);
+
+    // // validation
+    // if (!evt.target.email || !evt.target.password) {
+    //   this.setState({ error: "All fields must be filled" });
+    // }
+    // if (!validator.isEmail(req.body.email)) {
+    //   throw Error("Email not valid");
+    // }
+    // if (!validator.isStrongPassword(req.body.password)) {
+    //   throw Error("Password not strong enough");
+    // }
+
+    // const exists = await User.findOne({ email: req.body.email });
+    // if (exists) {
+    //   throw Error("Email already in use");
+    // }
+
     try {
       // We don't want to send the confirm or error properties
       // Let's make a copy of this.state (we never want to directly modify the state obj)
@@ -23,6 +44,7 @@ export default class SignUpForm extends Component {
       this.props.setUser(user);
     } catch {
       // An error occurred
+      // TODO: specific error?
       this.setState({ error: "Sign Up Failed - Try Again" });
     }
   };

@@ -28,9 +28,9 @@ export default function HabitsPage({ user }) {
 
   return (
     <>
-      <h1>All Your Routines</h1>
+      <h1 className="page-title">Your Routines</h1>
       {/* Add a habit */}
-      <button onClick={() => setAddPopup(true)}>Add</button>
+      <button onClick={() => setAddPopup(true)}>Add New Routine</button>
       <HabitsForm
         trigger={addPopup}
         setTrigger={setAddPopup}

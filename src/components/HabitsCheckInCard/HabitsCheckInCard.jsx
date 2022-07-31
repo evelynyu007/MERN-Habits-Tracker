@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import * as habitsAPI from "../../utilities/habits-api";
+import "./HabitsCheckInCard.css";
 const moment = require("moment");
 // create today as YYYY-MM-DD
 const todayYMD = moment(new Date()).format("YYYY-MM-DD");
-console.log(todayYMD);
 
 export default function HabitsCheckInCard({ habit }) {
   const [crossOut, setCrossOut] = useState(false);
@@ -34,16 +34,18 @@ export default function HabitsCheckInCard({ habit }) {
   }
 
   return (
-    <>
-      <h3
+    <div>
+      <p
+        className="check-in-routine"
         onClick={handleCrossOut}
         style={{
           textDecoration: crossOut ? "line-through" : "",
-          color: crossOut ? "red" : "",
+          color: crossOut ? "black" : "",
         }}
       >
-        {habit.title} for {habit.duration} hour(s)
-      </h3>
-    </>
+        {habit.title}
+        {habit.duration > 0 ? <span> for {habit.duration} hour(s)</span> : ""}
+      </p>
+    </div>
   );
 }

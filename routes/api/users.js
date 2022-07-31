@@ -1,14 +1,17 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const usersCtrl = require('../../controllers/api/users');
-const ensureLoggedIn = require('../../config/ensureLoggedIn');
+const usersCtrl = require("../../controllers/api/users");
+const ensureLoggedIn = require("../../config/ensureLoggedIn");
 
 // POST /api/users
-router.post('/', usersCtrl.create);
+router.post("/", usersCtrl.create);
 // POST /api/users/login
-router.post('/login', usersCtrl.login);
+router.post("/login", usersCtrl.login);
 
 // GET /api/users/check-token
-router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);
+router.get("/check-token", ensureLoggedIn, usersCtrl.checkToken);
+
+// PUT /api/users/subscribe TODO: ensureLoggedIn???
+router.put("/subscribe", ensureLoggedIn, usersCtrl.subscribeOrNot);
 
 module.exports = router;

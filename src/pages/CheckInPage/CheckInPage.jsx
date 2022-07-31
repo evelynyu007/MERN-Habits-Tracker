@@ -25,7 +25,7 @@ export default function CheckInPage({ user }) {
 
   return (
     <div className="checkin-page">
-      <h1>Check-In {todayFormat}</h1>
+      <h1 className="page-title">Check-In {todayFormat}</h1>
       {/* List all the habits user have */}
       {habits?.length ? (
         <>

@@ -27,7 +27,7 @@ app.use("/api/users", require("./routes/api/users"));
 // Protect the api routes below from anonymous users
 const ensureLoggedIn = require("./config/ensureLoggedIn");
 app.use("/api/habits", ensureLoggedIn, require("./routes/api/habits"));
-//app.use("/api/comments", ensureLoggedIn, require("./routes/api/comments"));
+//api/habits already cover all the routes within habits?
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests

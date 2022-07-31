@@ -37,7 +37,7 @@ export default function CalendarPage({ user }) {
 
   return (
     <div className="calendar-page">
-      <h1>Punch Out Calendar</h1>
+      <h1 className="page-title">Punch Out Calendar</h1>
 
       <Calendar
         localizer={localizer}

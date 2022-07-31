@@ -1,5 +1,4 @@
 import * as usersAPI from "./users-api";
-// import welcomeEmail from "../../controllers/api/sendEmail";
 
 export async function signUp(userData) {
   // Delegate the network request code to the users-api.js

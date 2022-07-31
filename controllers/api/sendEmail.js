@@ -24,6 +24,10 @@ const job = schedule.scheduleJob("10 7 * * *", async function () {
       userHabits.forEach((h) => {
         allHabitsList += `<li>${h.title} for ${h.duration} hour(s)</li>`;
       });
+      // if no habits
+      if (allHabitsList === "") {
+        allHabitsList = "No Goals for today. Go and create one!";
+      }
       return allHabitsList;
     }
 
@@ -34,7 +38,7 @@ const job = schedule.scheduleJob("10 7 * * *", async function () {
         email: process.env.SENDER_EMAIL,
       },
       subject: "Cheers to a new day!",
-      text: "Hello text",
+      text: "Hello",
       html: `
             <h1>Good morning, ${user.name}</h1>  
             <h2>Here are Today's Goals</h2>          
@@ -57,8 +61,9 @@ const job = schedule.scheduleJob("10 7 * * *", async function () {
         }
       }
     }
-    console.log("email sent out");
-    sendEmail();
+    user.subscribe && console.log("email sent out: " + i);
+    // send email to subscriber
+    user.subscribe && sendEmail();
   }
 });
 
@@ -84,7 +89,7 @@ function welcomeEmail(userEmail) {
       name: "Your Habit Tracker",
       email: process.env.SENDER_EMAIL,
     },
-    subject: "Cheers to a new day!",
+    subject: "Welcome to Habit Tracker!",
     text: "Welcome to Habit Tracker!",
     html: `<h1>Welcome to Habit Tracker!</h1>
             <h3>Follow your own schedule and track your own goals.</h3>
