@@ -1,6 +1,10 @@
 {
   "name": "mern-infrastructure",
   "version": "0.1.0",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": "8.1.2"
+  },
   "private": true,
   "dependencies": {
     "@sendgrid/mail": "^7.7.0",
