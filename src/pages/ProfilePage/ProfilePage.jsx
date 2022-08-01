@@ -30,9 +30,9 @@ export default function ProfilePage({ user }) {
       <h1 className="page-title">GREAT JOB!</h1>
       <ProgressBar now={now} label={`${now}%`} />
 
-      {/* d3 chart */}
+      {/* chartJS */}
 
-      <Heatmap />
+      <Heatmap userId={user._id} />
 
       {/* User statistics */}
       {/*

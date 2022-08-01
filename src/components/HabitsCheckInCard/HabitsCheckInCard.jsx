@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as habitsAPI from "../../utilities/habits-api";
+
 import "./HabitsCheckInCard.css";
 const moment = require("moment");
 // create today as YYYY-MM-DD
@@ -35,14 +36,6 @@ export default function HabitsCheckInCard({ habit }) {
 
   return (
     <div className="check-in-card">
-      <i
-        className="fa fa-check-square-o text-primary btn m-0 p-0"
-        data-toggle="tooltip"
-        data-placement="bottom"
-        title=""
-        data-original-title="Mark as todo"
-      ></i>
-
       <p
         className="check-in-routine"
         onClick={handleCrossOut}
@@ -51,6 +44,7 @@ export default function HabitsCheckInCard({ habit }) {
           color: crossOut ? "black" : "",
         }}
       >
+        {crossOut ? "✅" : ""}
         {habit.title}
         {habit.duration > 0 ? <span> for {habit.duration} hour(s)</span> : ""}
       </p>

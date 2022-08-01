@@ -2,7 +2,7 @@ import "./CheckInPage.css";
 import * as habitsAPI from "../../utilities/habits-api";
 import { useEffect, useState } from "react";
 import HabitsCheckInCard from "../../components/HabitsCheckInCard/HabitsCheckInCard";
-
+import Form from "react-bootstrap/Form";
 const today = new Date();
 
 const todayFormat = new Date().toLocaleDateString("en-us", {
@@ -28,18 +28,20 @@ export default function CheckInPage({ user }) {
       <h1 className="page-title">Check-In {todayFormat}</h1>
       {/* List all the habits user have */}
       <div className="checkin-container">
-        {habits?.length ? (
-          <>
-            {habits.map((habit) => {
-              // only list the habits after start date &&// before end date
-              if (Date.parse(habit.startDate) <= Date.parse(today))
-                return <HabitsCheckInCard key={habit._id} habit={habit} />;
-              else return null;
-            })}
-          </>
-        ) : (
-          <h2>No Habits for Today</h2>
-        )}
+        <Form>
+          {habits?.length ? (
+            <>
+              {habits.map((habit) => {
+                // only list the habits after start date &&// before end date
+                if (Date.parse(habit.startDate) <= Date.parse(today))
+                  return <HabitsCheckInCard key={habit._id} habit={habit} />;
+                else return null;
+              })}
+            </>
+          ) : (
+            <h2>No Habits for Today</h2>
+          )}
+        </Form>
       </div>
     </div>
   );
