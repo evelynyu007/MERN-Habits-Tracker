@@ -12,11 +12,11 @@ export default function AuthPage({ setUser }) {
       ) : (
         <LoginForm setUser={setUser} />
       )}
-      <h3 onClick={() => setShowSignUp(!showSignUp)}>
+      <h4 onClick={() => setShowSignUp(!showSignUp)}>
         {showSignUp
           ? "Have an accout? Log In"
           : "Dont' have an accout? Sign Up"}
-      </h3>
+      </h4>
     </main>
   );
 }

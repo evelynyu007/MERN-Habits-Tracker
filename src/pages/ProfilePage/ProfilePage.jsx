@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as usersAPI from "../../utilities/users-api";
 import Heatmap from "../../components/Heatmap/Heatmap";
 import "./ProfilePage.css";
+import Button from "react-bootstrap/Button";
 
 export default function ProfilePage({ user }) {
   const [subscribe, setSubscribe] = useState(user.subscribe);
@@ -44,9 +45,9 @@ export default function ProfilePage({ user }) {
             <p>Click the button below to subscribe! 🙌</p>
           </section>
         )}
-        <button onClick={handleClick}>
+        <Button variant="secondary" onClick={handleClick}>
           {subscribe ? "unsubscribe" : "subscribe"}
-        </button>
+        </Button>
       </div>
     </div>
   );

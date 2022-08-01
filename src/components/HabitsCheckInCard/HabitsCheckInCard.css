@@ -2,3 +2,13 @@
   font-size: larger;
   padding: 10px;
 }
+
+.check-in-routine:hover {
+  font-size: xx-large;
+  color: blueviolet;
+  padding: 10px;
+}
+
+/* each checkin card */
+.checkin-cards {
+}

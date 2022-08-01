@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import Button from "react-bootstrap/Button";
 import { signUp } from "../../utilities/users-service";
-const validator = require("validator");
+//const validator = require("validator");
 
 export default class SignUpForm extends Component {
   // class field syntax
@@ -104,9 +105,14 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <button type="submit" disabled={disable}>
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              disabled={disable}
+            >
               SIGN UP
-            </button>
+            </Button>
           </form>
         </div>
         <p className="error-message">&nbsp;{this.state.error}</p>

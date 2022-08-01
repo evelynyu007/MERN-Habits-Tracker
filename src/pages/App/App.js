@@ -10,6 +10,7 @@ import ProfilePage from "../ProfilePage/ProfilePage";
 import NavBar from "../../components/NavBar/NavBar";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function App() {
   const [user, setUser] = useState(getUser());

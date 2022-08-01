@@ -34,7 +34,15 @@ export default function HabitsCheckInCard({ habit }) {
   }
 
   return (
-    <div>
+    <div className="check-in-card">
+      <i
+        className="fa fa-check-square-o text-primary btn m-0 p-0"
+        data-toggle="tooltip"
+        data-placement="bottom"
+        title=""
+        data-original-title="Mark as todo"
+      ></i>
+
       <p
         className="check-in-routine"
         onClick={handleCrossOut}

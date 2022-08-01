@@ -1,26 +1,12 @@
-nav {
-  top: 0; /* Position the navbar at the top of the page */
-  width: 100%; /* Full width */
-  height: 50px;
-}
-
 /* Links inside the navbar */
-nav span {
-  float: right;
-  display: block;
-  color: #474545;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-family: "Signika Negative", sans-serif;
-  font-size: larger;
+/* NOT WORKING... */
+.navbar-nav {
+  text-align: right;
 }
 
-/* #log-out {
-  float: right;
-} */
 /* Change background on mouse-over */
-nav span:hover {
+
+.navbar-nav a:hover {
   background: #ddd;
   color: black;
 }

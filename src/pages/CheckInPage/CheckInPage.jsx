@@ -27,18 +27,20 @@ export default function CheckInPage({ user }) {
     <div className="checkin-page">
       <h1 className="page-title">Check-In {todayFormat}</h1>
       {/* List all the habits user have */}
-      {habits?.length ? (
-        <>
-          {habits.map((habit) => {
-            // only list the habits after start date &&// before end date
-            if (Date.parse(habit.startDate) <= Date.parse(today))
-              return <HabitsCheckInCard key={habit._id} habit={habit} />;
-            else return null;
-          })}
-        </>
-      ) : (
-        <h2>No Habits for Today</h2>
-      )}
+      <div className="checkin-container">
+        {habits?.length ? (
+          <>
+            {habits.map((habit) => {
+              // only list the habits after start date &&// before end date
+              if (Date.parse(habit.startDate) <= Date.parse(today))
+                return <HabitsCheckInCard key={habit._id} habit={habit} />;
+              else return null;
+            })}
+          </>
+        ) : (
+          <h2>No Habits for Today</h2>
+        )}
+      </div>
     </div>
   );
 }
