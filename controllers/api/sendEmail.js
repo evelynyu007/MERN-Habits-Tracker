@@ -45,7 +45,10 @@ const job = schedule.scheduleJob("10 7 * * *", async function () {
             <ol>
             ${habitsList()}
             </ol>
-            <a href='https://github.com/evelynyu007/MERN-Habits-Tracker'>More On Habit Tracker</a> 
+
+            
+            <a href='https://mern-routine-tracker.herokuapp.com/'>Log In to Routine Tracker</a> 
+
             <p>Have a great day,<p>
             <p>Habit Tracker Team</p>
             `,
@@ -89,10 +92,11 @@ function welcomeEmail(userEmail) {
       name: "Your Habit Tracker",
       email: process.env.SENDER_EMAIL,
     },
-    subject: "Welcome to Habit Tracker!",
-    text: "Welcome to Habit Tracker!",
-    html: `<h1>Welcome to Habit Tracker!</h1>
+    subject: "Welcome to Routine Tracker!",
+    text: "Welcome to Routine Tracker!",
+    html: `<h1>Welcome to Routine Tracker!</h1>
             <h3>Follow your own schedule and track your own goals.</h3>
+            <a href='https://github.com/evelynyu007/MERN-Habits-Tracker'>More Details about Routine Tracker</a> 
     `,
   };
   sgMail.send(welcomeMessage);

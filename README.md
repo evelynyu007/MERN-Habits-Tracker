@@ -32,3 +32,6 @@ https://mern-routine-tracker.herokuapp.com/calendar
 ## Screenshots
 
 ## Ice box
+
+- email verification
+- checkbox
