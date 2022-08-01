@@ -2,7 +2,7 @@
   "name": "mern-infrastructure",
   "version": "0.1.0",
   "engines": {
-    "node": ">=16.0.0",
+    "node": "16.x",
     "npm": "8.1.2"
   },
   "private": true,
