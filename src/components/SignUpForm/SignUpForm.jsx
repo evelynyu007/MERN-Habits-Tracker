@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import { signUp } from "../../utilities/users-service";
 //const validator = require("validator");
 
@@ -66,57 +67,64 @@ export default class SignUpForm extends Component {
   render() {
     const disable = this.state.password !== this.state.confirm;
     return (
-      <div>
-        <div className="form-container">
-          <form
-            className="form-login"
-            autoComplete="off"
-            onSubmit={this.handleSubmit}
-          >
-            <label>Name</label>
-            <input
+      <>
+        <Form
+          className="form-login"
+          autoComplete="off"
+          onSubmit={this.handleSubmit}
+        >
+          <Form.Group>
+            <Form.Label>Name</Form.Label>
+            <Form.Control
               type="text"
               name="name"
+              placeholder="Username"
               value={this.state.name}
               onChange={this.handleChange}
               required
             />
-            <label>Email</label>
-            <input
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label>Email</Form.Label>
+            <Form.Control
               type="email"
               name="email"
+              placeholder="Example@email.com"
               value={this.state.email}
               onChange={this.handleChange}
               required
             />
-            <label>Password</label>
-            <input
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Password</Form.Label>
+            <Form.Control
               type="password"
               name="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.handleChange}
               required
             />
-            <label>Confirm</label>
-            <input
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>Confirm</Form.Label>
+            <Form.Control
               type="password"
               name="confirm"
+              placeholder="Password"
               value={this.state.confirm}
               onChange={this.handleChange}
               required
             />
-            <Button
-              type="submit"
-              variant="primary"
-              size="lg"
-              disabled={disable}
-            >
-              SIGN UP
-            </Button>
-          </form>
-        </div>
+          </Form.Group>
+          <Button type="submit" variant="primary" disabled={disable}>
+            SIGN UP
+          </Button>
+        </Form>
+
         <p className="error-message">&nbsp;{this.state.error}</p>
-      </div>
+      </>
     );
   }
 }

@@ -1,5 +1,22 @@
+/* Login/Signup form  */
+
+.form-login {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 500px;
+}
+
+.form-login div {
+  padding: 10px;
+}
+
+.form-login button {
+  margin-top: 10px;
+}
+
 /* Change background on mouse-over */
-.auth-page-container h3:hover {
-  background: #ddd;
+.auth-span:hover {
+  font-size: xx-large;
   color: rgb(37, 37, 124);
 }

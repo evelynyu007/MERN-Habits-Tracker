@@ -4,30 +4,6 @@ body {
 .error-message {
   color: brown;
 }
-/* Login/Signup form  */
-.form-container {
-  /* display: grid;
-  grid-template-columns: 3fr 1fr; */
-}
-.form-login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-}
-.form-login label {
-  text-align: left;
-}
-.form-login input {
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width: 80%;
-  max-width: 600px;
-  border: 1px solid rgb(211, 209, 209);
-  border-radius: 4px;
-  box-sizing: border-box;
-}
 
 .page-title {
   font-family: "Cormorant SC", serif;

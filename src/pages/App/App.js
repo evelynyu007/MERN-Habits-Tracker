@@ -16,24 +16,26 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   return (
     <main className="App">
-      {user ? (
-        <>
-          <NavBar user={user} setUser={setUser} />
-          <Routes>
-            <Route path="/calendar" element={<CalendarPage user={user} />} />
-            <Route path="/habits" element={<HabitsPage user={user} />} />
-            <Route path="/checkin" element={<CheckInPage user={user} />} />
-            <Route path="/profile" element={<ProfilePage user={user} />} />
-            {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
-            <Route path="/*" element={<Navigate to="/calendar" />} />
-          </Routes>
-        </>
-      ) : (
-        <>
-          <Header />
-          <AuthPage setUser={setUser} />
-        </>
-      )}
+      <div id="content-wrap">
+        {user ? (
+          <>
+            <NavBar user={user} setUser={setUser} />
+            <Routes>
+              <Route path="/calendar" element={<CalendarPage user={user} />} />
+              <Route path="/habits" element={<HabitsPage user={user} />} />
+              <Route path="/checkin" element={<CheckInPage user={user} />} />
+              <Route path="/profile" element={<ProfilePage user={user} />} />
+              {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
+              <Route path="/*" element={<Navigate to="/calendar" />} />
+            </Routes>
+          </>
+        ) : (
+          <>
+            <Header />
+            <AuthPage setUser={setUser} />
+          </>
+        )}
+      </div>
       <Footer />
     </main>
   );

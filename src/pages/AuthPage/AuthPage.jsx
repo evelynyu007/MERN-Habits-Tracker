@@ -6,16 +6,18 @@ import "./AuthPage.css";
 export default function AuthPage({ setUser }) {
   const [showSignUp, setShowSignUp] = useState(false);
   return (
-    <main className="auth-page-container">
+    <main>
       {showSignUp ? (
         <SignUpForm setUser={setUser} />
       ) : (
         <LoginForm setUser={setUser} />
       )}
       <h4 onClick={() => setShowSignUp(!showSignUp)}>
-        {showSignUp
-          ? "Have an accout? Log In"
-          : "Dont' have an accout? Sign Up"}
+        {showSignUp ? (
+          <span className="auth-span">Have an accout? Log In</span>
+        ) : (
+          <span className="auth-span">Dont' have an accout? Sign Up</span>
+        )}
       </h4>
     </main>
   );

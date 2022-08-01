@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -30,31 +31,36 @@ export default function LoginForm({ setUser }) {
   }
 
   return (
-    <div>
-      <div className="form-container" onSubmit={handleSubmit}>
-        <form className="form-login" autoComplete="off">
-          <label>Email</label>
-          <input
-            type="text"
+    <>
+      <Form className="form-login" onSubmit={handleSubmit}>
+        <Form.Group>
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
             name="email"
+            placeholder="Example@email.com"
             value={credentials.email}
             onChange={handleChange}
             required
           />
-          <label>Password</label>
-          <input
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
             type="password"
             name="password"
+            placeholder="Password"
             value={credentials.password}
             onChange={handleChange}
             required
           />
-          <Button type="submit" variant="primary" size="lg">
-            LOG IN
-          </Button>
-        </form>
-      </div>
+        </Form.Group>
+        <Button type="submit" variant="primary">
+          LOG IN
+        </Button>
+      </Form>
+
       <p className="error-message">&nbsp;{error}</p>
-    </div>
+    </>
   );
 }
