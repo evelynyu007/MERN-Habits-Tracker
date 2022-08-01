@@ -1,4 +1,5 @@
 import "./UpdateHabitForm.css";
+import CloseButton from "react-bootstrap/CloseButton";
 import * as habitsAPI from "../../utilities/habits-api";
 import { useState } from "react";
 const moment = require("moment");
@@ -37,9 +38,11 @@ export default function UpdateHabitForm(props) {
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
-        <button className="close-btn" onClick={() => props.setTrigger(false)}>
-          close
-        </button>
+        <CloseButton
+          className="close-btn"
+          onClick={() => props.setTrigger(false)}
+        />
+
         <h3>Edit Habit - {props.habit.title} </h3>
 
         <form className="habit-form" onSubmit={handleSubmit}>

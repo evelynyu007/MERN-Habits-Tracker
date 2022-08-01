@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as habitsAPI from "../../utilities/habits-api";
+import CloseButton from "react-bootstrap/CloseButton";
 import "./HabitsForm.css";
 
 export default function HabitsForm({
@@ -36,14 +37,12 @@ export default function HabitsForm({
     <div className="popup">
       <div className="popup-inner">
         <h3>Add a New Habit</h3>
-        <button
+        <CloseButton
           className="close-btn"
           onClick={() => {
             setTrigger(false);
           }}
-        >
-          close
-        </button>
+        />
 
         <form className="habit-form" onSubmit={handleSubmit}>
           <label>Habit Name:</label>
