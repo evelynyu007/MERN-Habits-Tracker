@@ -29,6 +29,13 @@ A Routine Tracker that helps you to build good routine and reach your goals.
 
 https://mern-routine-tracker.herokuapp.com/calendar
 
-## Screenshots
+## Screenshot
+
+<img width="800" alt="ScreenShot-user-routine" src="https://user-images.githubusercontent.com/19142112/182234471-1966a18c-3f0e-4986-89fa-37cfd2ea076d.png">
+
+<img width="800" alt="ScreenShot-calendar" src="https://user-images.githubusercontent.com/19142112/182234628-b7c7b9f8-1f3e-4959-ba7e-abbedf83a868.png">
+
+<img width="800" alt="ScreenShot-stats" src="https://user-images.githubusercontent.com/19142112/182234683-35d9d6f6-eba6-4450-8372-b5b1ea359f29.png">
+
 
 ## Ice box
