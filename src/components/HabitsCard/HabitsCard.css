@@ -1,10 +1,10 @@
 .habits-card {
   text-align: left;
+  /* position: relative; */
   background: rgb(227, 226, 226);
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
-  /* position: relative; */
   width: 50%;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.08);
 }
@@ -19,4 +19,15 @@
   margin: 0;
   font-size: 0.9em;
   color: #555;
+}
+
+.habits-card .delete-button {
+  /* position: absolute; */
+  top: 16px;
+  right: 16px;
+}
+.habits-card .edit-button {
+  /* position: absolute; */
+  top: 48px;
+  right: 16px;
 }

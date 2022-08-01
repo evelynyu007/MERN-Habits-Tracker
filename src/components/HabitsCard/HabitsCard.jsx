@@ -1,4 +1,5 @@
 import "./HabitsCard.css";
+import { RiEditLine, RiDeleteBin5Line } from "react-icons/ri";
 import { useState } from "react";
 import * as habitsAPI from "../../utilities/habits-api";
 import UpdateHabitForm from "../UpdateHabitForm/UpdateHabitForm";
@@ -38,15 +39,18 @@ export default function HabitsCard({ habit, allHabits, setHabits, todayYMD }) {
       </p>
       {/* <p>{habit.createdAt}</p> */}
 
-      <button onClick={handleDelete}>Delete</button>
+      <button className="delete-button" onClick={handleDelete}>
+        <RiDeleteBin5Line />
+      </button>
 
       {/********************* Edit Habits **************************************/}
       <button
+        className="edit-button"
         onClick={() => {
           setEditPopup(true);
         }}
       >
-        Edit
+        <RiEditLine />
       </button>
       <UpdateHabitForm
         trigger={editPopup}

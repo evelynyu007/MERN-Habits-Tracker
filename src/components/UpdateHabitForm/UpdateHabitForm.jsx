@@ -43,10 +43,10 @@ export default function UpdateHabitForm(props) {
           onClick={() => props.setTrigger(false)}
         />
 
-        <h3>Edit Habit - {props.habit.title} </h3>
+        <h3>Edit Routine - {props.habit.title} </h3>
 
         <form className="habit-form" onSubmit={handleSubmit}>
-          <label>Habit Name:</label>
+          <label>Routine Name:</label>
           <input
             type="text"
             onChange={handleChange}

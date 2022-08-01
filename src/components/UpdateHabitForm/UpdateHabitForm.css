@@ -13,6 +13,8 @@
 
 .popup-inner {
   position: relative;
+  z-index: 1;
+
   padding: 20px;
   width: 100%;
   max-width: 640px;

@@ -36,7 +36,7 @@ export default function HabitsForm({
   return trigger ? (
     <div className="popup">
       <div className="popup-inner">
-        <h3>Add a New Habit</h3>
+        <h3>Add a New Routine</h3>
         <CloseButton
           className="close-btn"
           onClick={() => {
@@ -45,7 +45,7 @@ export default function HabitsForm({
         />
 
         <form className="habit-form" onSubmit={handleSubmit}>
-          <label>Habit Name:</label>
+          <label>Routine Name:</label>
           <input
             type="text"
             onChange={handleChange}
